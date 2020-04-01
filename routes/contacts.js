@@ -19,7 +19,7 @@ router.post("/", (req, res) => {
 // @desc    Change existing contact
 // @access  Private
 router.put("/:id", (req, res) => {
-  res.send("Change a contact");
+  res.send(`Change a contact with number ${req.params.id}`);
 });
 
 // @route   DELETE api/contacts/:id
