@@ -6,6 +6,9 @@ const app = express();
 //Connect the Database
 connectDB();
 
+//Initialize MiddleWare
+app.use(express.json({ extended: false }));
+
 app.get("/", (req, res) => res.json({ msg: "WELCOME TO THE API bi-otch" }));
 
 //Define the Routes to be use
