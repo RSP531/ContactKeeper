@@ -3,7 +3,7 @@ const connectDB = require("./config/db");
 
 const app = express();
 
-//connect the Database
+//Connect the Database
 connectDB();
 
 app.get("/", (req, res) => res.json({ msg: "WELCOME TO THE API bi-otch" }));
