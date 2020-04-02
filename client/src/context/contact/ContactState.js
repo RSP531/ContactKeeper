@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import uuid from "uuid";
-import contactContext from "./contactContext";
+import ContactContext from "./contactContext";
 import contactReducer from "./contactReducer";
 import {
   ADD_CONTACT,
@@ -10,8 +10,7 @@ import {
   UPDATE_CONTACT,
   FILTER_CONTACTS,
   CLEAR_FILTER
-} from "../types.js";
-import { getMaxListeners } from "cluster";
+} from "../types/types";
 
 const ContactState = props => {
   const initialState = {
