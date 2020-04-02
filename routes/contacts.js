@@ -43,6 +43,11 @@ router.post(
     const { firstName, lastName, email, phone, type } = req.body;
 
     try {
+      let contactCheck = await Contact.findOne({ email });
+      if (contactCheck) {
+        return res.status(400).json({ msg: "Contact email already exists" });
+      }
+
       const newContact = new Contact({
         firstName,
         lastName,
