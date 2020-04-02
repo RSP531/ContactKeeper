@@ -107,19 +107,11 @@ router.put("/:id", auth, async (req, res) => {
 // @desc    DELETE existing contact
 // @access  Private
 router.delete("/:id", auth, async (req, res) => {
-  const { firstName, lastName, email, phone, type } = req.body;
-
-  //  Build a contact object to see if submitted
-  const contactFields = {};
-  if (firstName) contactFields.firstName = firstName;
-  if (lastName) contactFields.lastName = lastName;
-  if (email) contactFields.email = email;
-  if (phone) contactFields.phone = phone;
-  if (type) contactFields.type = type;
   try {
     let contact = await Contact.findById(req.params.id);
+
     if (!contact) {
-      return res.status(404).json({ msg: "Contact does not exist" });
+      return res.status(404).json({ msg: "Contact not found" });
     }
     //Make sure the current user owns the contact
 
@@ -127,12 +119,8 @@ router.delete("/:id", auth, async (req, res) => {
       return res.status(401).json({ msg: "Not Authorized" });
     }
 
-    contact = await Contact.findByIdAndDelete(
-      req.params.id,
-      // { $set: contactFields },
-      { new: true }
-    );
-    res.json({ contact });
+    await Contact.findByIdAndRemove(req.params.id);
+    res.json({ msg: `${contact.firstName} was removed` });
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
