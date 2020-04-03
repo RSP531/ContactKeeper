@@ -11,7 +11,7 @@ import {
   LOGIN_FAIL,
   LOGOUT,
   LEAR_ERRORS
-} from "../types/types";
+} from "../types";
 
 const AuthState = props => {
   const initialState = {
