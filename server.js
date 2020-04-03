@@ -10,8 +10,6 @@ connectDB();
 //Initialize MiddleWare
 app.use(express.json({ extended: false }));
 
-app.get("/", (req, res) => res.json({ msg: "WELCOME TO THE API bi-otch" }));
-
 //Define the Routes to be use
 app.use("/api/users", require("./routes/users"));
 app.use("/api/auth", require("./routes/auth"));
