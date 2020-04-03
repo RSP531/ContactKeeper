@@ -34,8 +34,8 @@ const ContactFilter = () => {
   );
 };
 
-ContactFilter.propTypes = {
-  contact: PropTypes.object.isRequired
-};
+// ContactFilter.propTypes = {
+//   contact: PropTypes.object.isRequired
+// };
 
 export default ContactFilter;
