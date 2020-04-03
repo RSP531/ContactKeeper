@@ -80,6 +80,7 @@ router.put("/:id", auth, async (req, res) => {
   if (email) contactFields.email = email;
   if (phone) contactFields.phone = phone;
   if (type) contactFields.type = type;
+
   try {
     let contact = await Contact.findById(req.params.id);
     if (!contact) {
@@ -96,7 +97,7 @@ router.put("/:id", auth, async (req, res) => {
       { $set: contactFields },
       { new: true }
     );
-    res.json({ contact });
+    res.json(contact);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
