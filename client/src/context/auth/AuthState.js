@@ -4,7 +4,7 @@ import AuthContext from "./authContext";
 import authReducer from "./authReducer";
 import setAuthToken from "../../utils/setAuthToken";
 import {
-  REMOVE_ALERT,
+  // REMOVE_ALERT,
   REGISTER_SUCCESS,
   REGISTER_FAIL,
   USER_LOADED,
@@ -12,7 +12,7 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
-  LEAR_ERRORS,
+  // LEAR_ERRORS,
   CLEAR_ERRORS
 } from "../types";
 
