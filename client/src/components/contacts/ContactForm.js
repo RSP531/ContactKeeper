@@ -18,7 +18,7 @@ const ContactForm = () => {
         type: "personal"
       });
     }
-  }, [contactContext, clearCurrent, current, updateContact]);
+  }, [contactContext, current]);
 
   const [contact, setContact] = useState({
     firstName: "",
@@ -49,7 +49,7 @@ const ContactForm = () => {
   };
 
   return (
-    <form>
+    <form onSubmit={onSubmit}>
       <h2 className="text-primary">
         {current ? "Edit Contact" : "Add Contact"}
       </h2>
@@ -68,7 +68,7 @@ const ContactForm = () => {
         onChange={onChange}
       />
       <input
-        type="text"
+        type="email"
         placeholder="Email"
         name="email"
         value={email}
@@ -97,13 +97,12 @@ const ContactForm = () => {
         checked={type === "Professional"}
         onChange={onChange}
       />{" "}
-      Professional{" "}
+      Professional
       <div>
         <input
           type="submit"
           value={current ? "Update Contact" : "Add Contact"}
           className="btn btn-primary btn-block"
-          onClick={onSubmit}
         />
       </div>
       {current && (

@@ -21,7 +21,7 @@ const Contacts = () => {
   return (
     <Fragment>
       {contacts !== null && !loading ? (
-        <TransitionGroup className="item">
+        <TransitionGroup>
           {filtered !== null
             ? filtered.map(contact => (
                 <CSSTransition
