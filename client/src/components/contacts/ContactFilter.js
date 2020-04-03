@@ -1,5 +1,4 @@
 import React, { useContext, useRef, useEffect } from "react";
-// import PropTypes from "prop-types";
 import ContactContext from "../../context/contact/contactContext";
 
 const ContactFilter = () => {
@@ -33,9 +32,5 @@ const ContactFilter = () => {
     </form>
   );
 };
-
-// ContactFilter.propTypes = {
-//   contact: PropTypes.object.isRequired
-// };
 
 export default ContactFilter;
