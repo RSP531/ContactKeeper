@@ -37,7 +37,10 @@ const ContactState = props => {
         payload: res.data
       });
     } catch (err) {
-      dispatch({ type: CONTACT_ERROR, payload: err.response.msg });
+      dispatch({
+        type: CONTACT_ERROR,
+        payload: err.response.msg
+      });
     }
   };
 
@@ -46,7 +49,7 @@ const ContactState = props => {
     //contact.id = uuidv4();
     const config = {
       headers: {
-        "Content-type": "application/json"
+        "Content-Type": "application/json"
       }
     };
     try {
@@ -81,21 +84,26 @@ const ContactState = props => {
   const updateContact = async contact => {
     const config = {
       headers: {
-        "Content-type": "application/json"
+        "Content-Type": "application/json"
       }
     };
+
     try {
       const res = await axios.put(
         `/api/contacts/${contact._id}`,
         contact,
         config
       );
+
       dispatch({
         type: UPDATE_CONTACT,
         payload: res.data
       });
     } catch (err) {
-      dispatch({ type: CONTACT_ERROR, payload: err.response.msg });
+      dispatch({
+        type: CONTACT_ERROR,
+        payload: err.response.msg
+      });
     }
   };
 
