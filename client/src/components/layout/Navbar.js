@@ -15,6 +15,15 @@ const Navbar = ({ title, icon }) => {
         <li>
           <Link to="/about">About</Link>
         </li>
+        <li>
+          <Link to="/register">Register</Link>
+        </li>
+        <li>
+          <Link to="/Login">Login</Link>
+        </li>
+        <li>
+          <Link to="/Logout">Logout</Link>
+        </li>
       </ul>
     </div>
   );
