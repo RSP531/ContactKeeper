@@ -53,6 +53,7 @@ const Register = props => {
         <div className="form-group">
           <label htmlFor="email">Email Address</label>
           <input
+            id="email"
             type="email"
             name="email"
             value={email}
@@ -63,7 +64,8 @@ const Register = props => {
         <div className="form-group">
           <label htmlFor="password">Password</label>
           <input
-            type="text"
+            id="password"
+            type="password"
             name="password"
             value={password}
             onChange={onChange}
