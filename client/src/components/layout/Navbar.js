@@ -22,13 +22,13 @@ const Navbar = ({ title, icon }) => {
         Hello {user && user.firstName} {user && user.lastName}
       </li>
       <li>
-        <Link to="/">Home</Link>
+        <Link to="/"> Home </Link>
       </li>
       <li>
-        <Link to="/about">About</Link>
+        <Link to="/list"> List </Link>
       </li>
       <li>
-        <Link to="/list">List</Link>
+        <Link to="/about"> About </Link>
       </li>
       <li>
         <a onClick={onLogout} href="#!">
