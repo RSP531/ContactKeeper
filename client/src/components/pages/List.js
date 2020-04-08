@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import AuthContext from "../../context/auth/authContext";
 
 const List = () => {
+  const authContext = useContext(AuthContext);
+
+  useEffect(() => {
+    authContext.loadUser();
+    // eslint-disable-next-line
+  }, []);
+
   return (
-    <div>
-      <h1>Here is where the list will go</h1>
-      <p className="my-1"> List here</p>
-      <p className="bg-dark p">
-        <strong>Version</strong> 1.0.0
-      </p>
+    <div className="grid-2">
+      <div>More Stuff</div>
+      <div>Stuff</div>
     </div>
   );
 };
