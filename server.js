@@ -25,6 +25,7 @@ if (process.env.NODE_ENV === "production") {
   );
 }
 
+//PORT must be uppercase
 const port = process.env.PORT || 5050;
 
 app.listen(port, () =>
