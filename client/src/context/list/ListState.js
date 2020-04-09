@@ -2,7 +2,7 @@ import React, { useReducer } from "react";
 // import axios from "axios";
 import ListContext from "./listContext";
 import listReducer from "./listReducer";
-import { UPDATE_ARRAY, UPDATE_ITEM, DELETE_ITEM } from "../types";
+import { UPDATE_ITEM, DELETE_ITEM } from "../types";
 
 const ListState = props => {
   const initialState = {
@@ -26,19 +26,11 @@ const ListState = props => {
 
   //List of all the actions
 
-  const updateArray = (currentArray, futureArray) => {
-    let data = { currentArray, futureArray };
-    dispatch({ type: UPDATE_ARRAY, payload: data });
-  };
-
-  //add item to the array
+  //update item to the array
   const updateItem = (id, futureArray) => {
-    let test = state.list.filter(item => {
-      if (item.id == id) {
-        return item;
-      }
-    });
-    let temp = { id: id, item: test[0].item, list: futureArray };
+    let idNum = Number(id);
+    let test = state.list.filter(item => item.id === idNum);
+    let temp = { id: idNum, item: test[0].item, list: futureArray };
     dispatch({ type: UPDATE_ITEM, payload: temp });
   };
 

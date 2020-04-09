@@ -11,7 +11,7 @@ export default (state, action) => {
       return {
         ...state,
         list: state.list.map(item =>
-          item.id == action.payload.id ? action.payload : item
+          item.id === action.payload.id ? action.payload : item
         ),
         loading: false
       };
