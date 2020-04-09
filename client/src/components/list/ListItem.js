@@ -1,13 +1,8 @@
 import React from "react";
 
-const ListItem = ({ index, dragCard, itemId, item }) => {
+const ListItem = ({ dragCard, itemId, item }) => {
   return (
-    <div
-      key={index}
-      className="itemCard"
-      draggable
-      onDragStart={e => dragCard(e, itemId)}
-    >
+    <div className="itemCard" onDragStart={e => dragCard(e, itemId)} draggable>
       {item}
       <i className="fas fa-times cardIcon"></i>
     </div>

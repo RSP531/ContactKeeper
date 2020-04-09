@@ -32,13 +32,12 @@ const List = ({ title, sentArray, listNumber }) => {
       className="listCard"
       onDragOver={e => dragOverStuff(e)}
       onDrop={e => dropCard(e, title, "listCard")}
-      draggable
+      // draggable
     >
       <h1 className="text-dark text-center">{title}</h1>
       {sentArray.map((item, index) => (
         <ListItem
           key={index}
-          index={index}
           dragCard={dragCard}
           itemId={item.id}
           item={item.item}

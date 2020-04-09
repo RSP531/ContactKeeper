@@ -17,7 +17,8 @@ const ListState = props => {
       { id: 8, item: "canada", list: 2 },
       { id: 9, item: "apples", list: 3 },
       { id: 10, item: "apricots", list: 3 },
-      { id: 11, item: "arugula", list: 3 }
+      { id: 11, item: "arugula", list: 3 },
+      { id: 11, item: "new", list: 4 }
     ],
     loading: true
   };
