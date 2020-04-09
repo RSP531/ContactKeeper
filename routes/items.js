@@ -11,7 +11,9 @@ const Contact = require("./models/Contact");
 // @access  Private
 router.get("/", auth, async (req, res) => {
   try {
-    const items = await Item.find({ user: req.user.id });
+    const items = await Item.find({ user: req.user.id }).sort({
+      date: -1
+    });
     res.json(items);
   } catch (err) {
     console.error(err.message);
@@ -43,8 +45,8 @@ router.post(
     try {
       const newItem = new Item({
         item,
-        list
-        //user: req.user.id
+        list,
+        user: req.user.id
       });
 
       const item = await newItem.save();
