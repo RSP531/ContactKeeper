@@ -1,9 +1,6 @@
-import React, { useContext } from "react";
-import ListContext from "../../context/list/listContext";
+import React from "react";
 
 const ListItem = ({ index, dragCard, itemId, item }) => {
-  const listContext = useContext(ListContext);
-
   return (
     <div
       key={index}

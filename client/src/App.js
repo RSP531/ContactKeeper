@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import About from "./components/pages/About";
 import Home from "./components/pages/Home";
-import List from "./components/list/List";
+import ListPage from "./components/list/ListPage";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Alerts from "./components/layout/Alerts";
@@ -15,7 +15,6 @@ import AlertState from "./context/alert/AlertState";
 import ListState from "./context/list/ListState";
 import setAuthToken from "./utils/setAuthToken";
 import "./App.css";
-import ListPage from "./components/list/ListPage";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);

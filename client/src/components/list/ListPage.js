@@ -7,7 +7,7 @@ const ListPage = () => {
   const listContext = useContext(ListContext);
   const authContext = useContext(AuthContext);
 
-  const { list, arry1, arry2, arry3 } = listContext;
+  const { list } = listContext;
 
   useEffect(() => {
     authContext.loadUser();
@@ -23,9 +23,6 @@ const ListPage = () => {
       <List title={"Groceries Test1"} sentArray={stuff1} listNumber={1} />
       <List title={"Groceries Test2"} sentArray={stuff2} listNumber={2} />
       <List title={"Groceries Test3"} sentArray={stuff3} listNumber={3} />
-      {/* <List title={"Groceries Test"} sentArray={arry1} />
-      <List title={"To Buy"} sentArray={arry2} />
-      <List title={"List 3"} sentArray={arry3} /> */}
     </div>
   );
 };

@@ -7,7 +7,7 @@ const List = ({ title, sentArray, listNumber }) => {
   const listContext = useContext(ListContext);
   const authContext = useContext(AuthContext);
 
-  const { addItem } = listContext;
+  const { updateItem } = listContext;
 
   useEffect(() => {
     authContext.loadUser();
@@ -24,7 +24,7 @@ const List = ({ title, sentArray, listNumber }) => {
 
   const dropCard = (e, futureHome) => {
     let id = e.dataTransfer.getData("text");
-    addItem(id, listNumber);
+    updateItem(id, listNumber);
   };
 
   return (
