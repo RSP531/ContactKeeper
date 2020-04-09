@@ -3,8 +3,8 @@ const router = express.Router();
 const auth = require("../middleware/auth");
 const { check, validationResult } = require("express-validator");
 
-const Contact = require("./models/Contact");
 const Item = require("./models/Item");
+const Contact = require("./models/Contact");
 
 // @route   GET api/items
 // @desc    Get all items
