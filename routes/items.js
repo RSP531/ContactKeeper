@@ -29,7 +29,7 @@ router.post(
   [
     auth,
     [
-      check("item", "item is required")
+      check("listItem", "item is required")
         .not()
         .isEmpty()
     ]
@@ -40,11 +40,11 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { item, list } = req.body;
+    const { list, listItem } = req.body;
 
     try {
       const newItem = new Item({
-        item,
+        listItem,
         list,
         user: req.user.id
       });
@@ -63,7 +63,7 @@ router.post(
 // @desc    Change existing contact
 // @access  Private
 router.put("/:id", auth, async (req, res) => {
-  const { firstName, lastName, email, phone, type } = req.body;
+  const { list, listItem } = req.body;
 
   //  Build a contact object to see if submitted
   const contactFields = {};
@@ -101,19 +101,19 @@ router.put("/:id", auth, async (req, res) => {
 // @access  Private
 router.delete("/:id", auth, async (req, res) => {
   try {
-    let contact = await Contact.findById(req.params.id);
+    let item = await Item.findById(req.params.id);
 
-    if (!contact) {
-      return res.status(404).json({ msg: "Contact not found" });
+    if (!item) {
+      return res.status(404).json({ msg: "Item not found" });
     }
-    //Make sure the current user owns the contact
 
-    if (contact.user.toString() !== req.user.id) {
+    //Make sure the current user owns the item
+    if (item.user.toString() !== req.user.id) {
       return res.status(401).json({ msg: "Not Authorized" });
     }
 
-    await Contact.findByIdAndRemove(req.params.id);
-    res.json({ msg: `${contact.firstName} was removed` });
+    await Item.findByIdAndRemove(req.params.id);
+    res.json({ msg: `${item.listItem} was removed` });
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");

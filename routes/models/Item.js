@@ -5,7 +5,7 @@ const ItemSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "users"
   },
-  item: {
+  listItem: {
     type: String,
     required: true,
     default: "Grocery Item"
