@@ -39,26 +39,18 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { firstName, lastName, email, phone, type } = req.body;
+    //const { item, list } = req.body;
 
     try {
-      let contactCheck = await Contact.findOne({ email });
-      if (contactCheck) {
-        return res.status(400).json({ msg: "Contact email already exists" });
-      }
-
-      const newContact = new Contact({
-        firstName,
-        lastName,
-        email,
-        phone,
-        type,
+      const newItem = new Item({
+        item,
+        list,
         user: req.user.id
       });
 
-      const contact = await newContact.save();
+      const item = await newItem.save();
 
-      res.json(contact);
+      res.json(item);
     } catch (err) {
       console.error(err.message);
       res.status(500).send("Server Error");
