@@ -9,6 +9,8 @@ const List = () => {
     // eslint-disable-next-line
   }, []);
 
+  let arry1 = ["bananas", "bread", "biscuits", "baking-soda"];
+  let arry2 = ["cookies", "cream", "cake", "canada"];
   let type = "Professional";
   let email = "monica@gmail.com";
   let phone = "111-111-1111";
@@ -28,34 +30,46 @@ const List = () => {
 
   return (
     <div className="grid-3">
-      <div className="listCard">
-        <h1 className="text-dark text-center">Groceries</h1>
-        <div
-          key="Milk"
-          className="itemCard"
-          draggable
-          onDragStart={e => dragCard(e, "milk")}
-        >
-          Milk
-          <i className="fas fa-times cardIcon"></i>
-        </div>
-        <div className="itemCard">
-          Salad
-          <i className="fas fa-times cardIcon"></i>
-        </div>
-        <div className="itemCard">
-          Salad
-          <i className="fas fa-times cardIcon"></i>
-        </div>
-      </div>
       <div
         className="listCard"
         onDragOver={e => dragOverStuff(e)}
         onDrop={e => dropCard(e, "complete")}
+        draggable
       >
-        {" "}
-        test 3
+        <h1 className="text-dark text-center">Groceries</h1>
+        {arry1.map((item, index) => (
+          <div
+            key={index}
+            className="itemCard"
+            draggable
+            onDragStart={e => dragCard(e, item)}
+          >
+            {item}
+            <i className="fas fa-times cardIcon"></i>
+          </div>
+        ))}
       </div>
+
+      <div
+        className="listCard"
+        onDragOver={e => dragOverStuff(e)}
+        onDrop={e => dropCard(e, "complete")}
+        draggable
+      >
+        <h1 className="text-dark text-center">Test 3</h1>
+        {arry2.map((item, index) => (
+          <div
+            key={index}
+            className="itemCard"
+            draggable
+            onDragStart={e => dragCard(e, item)}
+          >
+            {item}
+            <i className="fas fa-times cardIcon"></i>
+          </div>
+        ))}
+      </div>
+
       <div className="listCard card bg-light">
         <h3 className="text-dark text-left">
           Monica Geller
