@@ -1,14 +1,14 @@
 const mongoose = require("mongoose");
 
-const UserSchema = mongoose.Schema({
+const ItemSchema = mongoose.Schema({
   item: {
     type: String,
     required: true
   },
   list: {
-    type: Number,
+    type: String,
     required: true
   }
 });
 
-module.exports = mongoose.model("item", UserSchema);
+module.exports = mongoose.model("item", ItemSchema);

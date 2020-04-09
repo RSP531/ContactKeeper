@@ -3,7 +3,6 @@ const router = express.Router();
 const auth = require("../middleware/auth");
 const { check, validationResult } = require("express-validator");
 
-const User = require("./models/User");
 const Contact = require("./models/Contact");
 const Item = require("./models/Item");
 
@@ -20,8 +19,8 @@ router.get("/", auth, async (req, res) => {
   }
 });
 
-// @route   POST api/contacts
-// @desc    Add new contact
+// @route   POST api/items
+// @desc    Add a new item
 // @access  Private
 router.post(
   "/",
@@ -39,13 +38,13 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    //const { item, list } = req.body;
+    const { item, list } = req.body;
 
     try {
       const newItem = new Item({
         item,
-        list,
-        user: req.user.id
+        list
+        //user: req.user.id
       });
 
       const item = await newItem.save();
