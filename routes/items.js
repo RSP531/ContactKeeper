@@ -66,30 +66,27 @@ router.put("/:id", auth, async (req, res) => {
   const { list, listItem } = req.body;
 
   //  Build a contact object to see if submitted
-  const contactFields = {};
-  if (firstName) contactFields.firstName = firstName;
-  if (lastName) contactFields.lastName = lastName;
-  if (email) contactFields.email = email;
-  if (phone) contactFields.phone = phone;
-  if (type) contactFields.type = type;
+  const itemFields = {};
+  if (list) itemFields.list = list;
+  if (listItem) itemFields.listItem = listItem;
 
   try {
-    let contact = await Contact.findById(req.params.id);
-    if (!contact) {
-      return res.status(404).json({ msg: "Contact does not exist" });
+    let item = await Item.findById(req.params.id);
+    if (!item) {
+      return res.status(404).json({ msg: "Item does not exist" });
     }
 
-    //Make sure the current user owns the contact
-    if (contact.user.toString() !== req.user.id) {
+    //Make sure the current user owns the item
+    if (item.user.toString() !== req.user.id) {
       return res.status(401).json({ msg: "Not Authorized" });
     }
 
-    contact = await Contact.findByIdAndUpdate(
+    item = await Item.findByIdAndUpdate(
       req.params.id,
-      { $set: contactFields },
+      { $set: itemFields },
       { new: true }
     );
-    res.json(contact);
+    res.json(item);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
