@@ -14,15 +14,15 @@ const ListPage = () => {
     // eslint-disable-next-line
   }, []);
 
-  let stuff1 = list.filter(item => item.list === 1);
-  let stuff2 = list.filter(item => item.list === 2);
-  let stuff3 = list.filter(item => item.list === 3);
+  let stuff1 = list.filter(item => item.list === "1");
+  let stuff2 = list.filter(item => item.list === "2");
+  let stuff3 = list.filter(item => item.list === "3");
 
   return (
     <div className="grid-3">
-      <List title={"Groceries Test1"} sentArray={stuff1} listNumber={1} />
-      <List title={"Groceries Test2"} sentArray={stuff2} listNumber={2} />
-      <List title={"Groceries Test3"} sentArray={stuff3} listNumber={3} />
+      <List title={"Groceries Test1"} sentArray={stuff1} listNumber={"1"} />
+      <List title={"Groceries Test2"} sentArray={stuff2} listNumber={"2"} />
+      <List title={"Groceries Test3"} sentArray={stuff3} listNumber={"3"} />
     </div>
   );
 };
