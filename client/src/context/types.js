@@ -18,3 +18,6 @@ export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAIL = "LOGIN_FAIL";
 export const LOGOUT = "LOGOUT";
 export const CLEAR_ERRORS = "CLEAR_ERRORS";
+export const UPDATE_ARRAY = "UPDATE_ARRAY";
+export const ADD_ITEM = "ADD_ITEM";
+export const DELETE_ITEM = "DELETE_ITEM";
