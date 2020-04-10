@@ -20,7 +20,8 @@ const ListState = props => {
       { id: "11", listItem: "arugula", list: "3" },
       { id: "12", listItem: "new", list: "4" }
     ],
-    loading: true
+    loading: true,
+    error: null
   };
 
   const [state, dispatch] = useReducer(listReducer, initialState);
@@ -44,10 +45,24 @@ const ListState = props => {
   };
 
   //update item to the array
-  const updateItem = (id, futureArray) => {
-    let test = state.list.filter(item => item.id === id);
-    let temp = { id: id, listItem: test[0].item, list: futureArray };
-    dispatch({ type: UPDATE_ITEM, payload: temp });
+  const updateItem = async item => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+    try {
+      const res = await axios.put(`/api/items/${item._id}`, item, config);
+      dispatch({
+        type: UPDATE_ITEM,
+        payload: res.data
+      });
+    } catch (err) {
+      dispatch({
+        type: ITEMS_ERROR,
+        payload: err.response.msg
+      });
+    }
   };
 
   //delete the item from current array
@@ -61,6 +76,7 @@ const ListState = props => {
       value={{
         loading: state.loading,
         list: state.list,
+        error: state.error,
         updateItem,
         deleteItem,
         getItems

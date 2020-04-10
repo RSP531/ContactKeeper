@@ -23,16 +23,16 @@ const List = ({ title, sentArray, listNumber }) => {
     e.dataTransfer.setData("text/plain", id);
   };
 
-  const dropCard = (e, futureHome) => {
+  const dropCard = e => {
     let id = e.dataTransfer.getData("text");
-    updateItem(id, listNumber);
+    updateItem({ _id: id, list: listNumber });
   };
 
   return (
     <div
       className="listCard"
       onDragOver={e => dragOverStuff(e)}
-      onDrop={e => dropCard(e, title)}
+      onDrop={e => dropCard(e)}
       // draggable
     >
       <h1 className="text-dark text-center">List {listNumber}</h1>

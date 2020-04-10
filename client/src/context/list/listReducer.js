@@ -1,4 +1,4 @@
-import { UPDATE_ITEM, DELETE_ITEM, GET_ITEMS } from "../types";
+import { UPDATE_ITEM, DELETE_ITEM, GET_ITEMS, ITEMS_ERROR } from "../types";
 
 export default (state, action) => {
   switch (action.type) {
@@ -12,7 +12,7 @@ export default (state, action) => {
       return {
         ...state,
         list: state.list.map(item =>
-          item.id === action.payload.id ? action.payload : item
+          item._id === action.payload._id ? action.payload : item
         ),
         loading: false
       };
@@ -21,6 +21,11 @@ export default (state, action) => {
         ...state,
         list: state.list.filter(item => item.id !== action.payload),
         loading: false
+      };
+    case ITEMS_ERROR:
+      return {
+        ...state,
+        error: action.payload
       };
     default:
       return state;
