@@ -7,13 +7,22 @@ const ListPage = () => {
   const listContext = useContext(ListContext);
   const authContext = useContext(AuthContext);
 
-  const { list } = listContext;
+  const { list, getItems, loading } = listContext;
 
   useEffect(() => {
     authContext.loadUser();
+
     // eslint-disable-next-line
   }, []);
 
+  // if (list !== null && !loading) {
+  //   return (
+  //     <div>
+  //       Nothing Left
+  //       <List title={"hi"} sentArray={[]} listNumber={"1"} />
+  //     </div>
+  //   );
+  // } else {
   let stuff1 = list.filter(item => item.list === "1");
   let stuff2 = list.filter(item => item.list === "2");
   let stuff3 = list.filter(item => item.list === "3");

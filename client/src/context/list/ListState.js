@@ -6,20 +6,7 @@ import { UPDATE_ITEM, DELETE_ITEM, GET_ITEMS, ITEMS_ERROR } from "../types";
 
 const ListState = props => {
   const initialState = {
-    list: [
-      { id: "1", listItem: "bananas", list: "1" },
-      { id: "2", listItem: "bread", list: "1" },
-      { id: "3", listItem: "biscuits", list: "1" },
-      { id: "4", listItem: "baking-soda", list: "1" },
-      { id: "5", listItem: "cookies", list: "2" },
-      { id: "6", listItem: "cream", list: "2" },
-      { id: "7", listItem: "cake", list: "2" },
-      { id: "8", listItem: "canada", list: "2" },
-      { id: "9", listItem: "apples", list: "3" },
-      { id: "10", listItem: "apricots", list: "3" },
-      { id: "11", listItem: "arugula", list: "3" },
-      { id: "12", listItem: "new", list: "4" }
-    ],
+    list: [],
     loading: true,
     error: null
   };
