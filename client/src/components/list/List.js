@@ -7,10 +7,11 @@ const List = ({ title, sentArray, listNumber }) => {
   const listContext = useContext(ListContext);
   const authContext = useContext(AuthContext);
 
-  const { updateItem } = listContext;
+  const { updateItem, getItems } = listContext;
 
   useEffect(() => {
     authContext.loadUser();
+    getItems();
     // eslint-disable-next-line
   }, []);
 
@@ -39,8 +40,8 @@ const List = ({ title, sentArray, listNumber }) => {
         <ListItem
           key={index}
           dragCard={dragCard}
-          itemId={item.id}
-          item={item.item}
+          itemId={item._id}
+          item={item.listItem}
         />
       ))}
     </div>

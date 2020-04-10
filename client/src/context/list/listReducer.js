@@ -1,7 +1,13 @@
-import { UPDATE_ITEM, DELETE_ITEM } from "../types";
+import { UPDATE_ITEM, DELETE_ITEM, GET_ITEMS } from "../types";
 
 export default (state, action) => {
   switch (action.type) {
+    case GET_ITEMS:
+      return {
+        ...state,
+        list: action.payload,
+        loading: false
+      };
     case UPDATE_ITEM:
       return {
         ...state,
