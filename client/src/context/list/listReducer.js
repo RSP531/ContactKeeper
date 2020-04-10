@@ -19,7 +19,7 @@ export default (state, action) => {
     case DELETE_ITEM:
       return {
         ...state,
-        list: state.list.filter(item => item.id !== action.payload),
+        list: state.list.filter(item => item._id !== action.payload),
         loading: false
       };
     case ITEMS_ERROR:

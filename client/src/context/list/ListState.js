@@ -66,9 +66,21 @@ const ListState = props => {
   };
 
   //delete the item from current array
-  const deleteItem = id => {
+  const deleteItem = async id => {
     //let item = { id: id, item: currentArray };
-    dispatch({ type: DELETE_ITEM, payload: id });
+    console.log(id);
+    try {
+      await axios.delete(`/api/items/${id}`);
+      dispatch({
+        type: DELETE_ITEM,
+        payload: id
+      });
+    } catch (err) {
+      dispatch({
+        type: ITEMS_ERROR,
+        payload: err.response.msg
+      });
+    }
   };
 
   return (
