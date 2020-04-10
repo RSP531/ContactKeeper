@@ -28,6 +28,11 @@ const List = ({ title, sentArray, listNumber }) => {
     updateItem({ _id: id, list: listNumber });
   };
 
+  const submitForm = e => {
+    e.preventDefault();
+    console.log(e.target.value);
+  };
+
   return (
     <div
       className="listCard"
@@ -36,6 +41,18 @@ const List = ({ title, sentArray, listNumber }) => {
       // draggable
     >
       <h1 className="text-dark text-center">List {listNumber}</h1>
+
+      <form>
+        <div className="newItemContainer">
+          <input
+            className="itemCard itemInput"
+            type="text center"
+            placeholder="New item..."
+            onSubmit={submitForm}
+          />
+        </div>
+      </form>
+
       {sentArray.map((item, index) => (
         <ListItem
           key={index}
