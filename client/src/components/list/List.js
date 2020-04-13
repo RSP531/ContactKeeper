@@ -26,7 +26,11 @@ const List = ({ title, sentArray, listNumber }) => {
 
   const dropCard = e => {
     let id = e.dataTransfer.getData("text");
+    // if(listNumber !==){
+    // } else {
     updateItem({ _id: id, list: listNumber });
+
+    console.log(e.target.id);
   };
 
   return (
@@ -41,6 +45,7 @@ const List = ({ title, sentArray, listNumber }) => {
       {sentArray.map((item, index) => (
         <ListItem
           key={index}
+          trackerID={index}
           dragCard={dragCard}
           itemId={item._id}
           item={item.listItem}

@@ -482,7 +482,7 @@ table th {
 }
 
 .input-field {
-  width: 100%;
+  width: 80%;
   margin: 0.1rem;
   padding-left: 20px;
   text-align: left;
@@ -490,4 +490,26 @@ table th {
   background: var(--primary-color);
   font-family: "Roboto", sans-serif;
   font-size: 1rem !important;
+}
+
+.hoverEffect:hover {
+  transform: translateY(1px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.hoverEffectAdd:hover {
+  transform: translateY(1px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.hoverEffect:focus,
+.hoverEffect:active {
+  color: red;
+  transform: translateY(3px);
+}
+
+.hoverEffectAdd:focus,
+.hoverEffectAdd:active {
+  color: green;
+  transform: translateY(3px);
 }

@@ -7,7 +7,7 @@ const ListPage = () => {
   const listContext = useContext(ListContext);
   const authContext = useContext(AuthContext);
 
-  const { list, getItems, loading } = listContext;
+  const { list } = listContext;
 
   useEffect(() => {
     authContext.loadUser();
