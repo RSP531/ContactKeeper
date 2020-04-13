@@ -32,19 +32,22 @@ const AddItem = ({ listNumber }) => {
 
   return (
     <div>
-      <div className="input-icons">
-        <i
-          className="fa fa-plus-square icon hoverEffectAdd"
-          onClick={submitForm}
-        ></i>
-        <input
-          ref={text}
-          className="input-field"
-          type="text"
-          placeholder="Add Item..."
-          // onChange={onChange}
-        />
-      </div>
+      <form onSubmit={submitForm}>
+        <div className="input-icons">
+          <i
+            className="fa fa-plus-square icon hoverEffectAdd"
+            onClick={submitForm}
+          ></i>
+          <input
+            ref={text}
+            className="input-field itemCardInput"
+            type="text"
+            placeholder="Add Item..."
+
+            // onChange={onChange}
+          />
+        </div>
+      </form>
     </div>
   );
 };

@@ -466,6 +466,7 @@ table th {
 
 .input-icons i {
   position: absolute;
+  padding-right: 10px;
 }
 
 .input-icons {
@@ -475,21 +476,19 @@ table th {
 }
 
 .icon {
-  /* padding: 1.5%; */
   align-self: center;
   padding-right: 0.6rem;
-  /* margin-top: 20px; */
 }
 
 .input-field {
   width: 80%;
   margin: 0.1rem;
-  padding-left: 20px;
   text-align: left;
   border-radius: 5px;
   background: var(--primary-color);
   font-family: "Roboto", sans-serif;
   font-size: 1rem !important;
+  padding-right: 1.5rem !important;
 }
 
 .hoverEffect:hover {
@@ -512,4 +511,14 @@ table th {
 .hoverEffectAdd:active {
   color: green;
   transform: translateY(3px);
+}
+
+.itemCard:active {
+  background: var(--dark-color);
+  /* transform: rotate(3deg); */
+  margin: 1px;
+}
+
+.itemCardInput:hover {
+  background: var(--danger-color);
 }
