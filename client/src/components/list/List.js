@@ -38,7 +38,7 @@ const List = ({ title, sentArray, listNumber }) => {
       className="listCard"
       onDragOver={e => dragOverStuff(e)}
       onDrop={e => dropCard(e)}
-      // draggable
+      // draggable add later
     >
       <h1 className="text-dark text-center">List {listNumber}</h1>
 
