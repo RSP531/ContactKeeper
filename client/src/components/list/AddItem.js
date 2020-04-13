@@ -1,12 +1,20 @@
-import React, { useRef, useContext } from "react";
+import React, { useRef, useContext, useEffect } from "react";
 import ListContext from "../../context/list/listContext";
+import AuthContext from "../../context/auth/authContext";
 
 const AddItem = ({ listNumber }) => {
   const listContext = useContext(ListContext);
+  const authContext = useContext(AuthContext);
 
   const text = useRef("");
 
-  const { addItem } = listContext;
+  const { addItem, getItems } = listContext;
+
+  useEffect(() => {
+    authContext.loadUser();
+    getItems();
+    // eslint-disable-next-line
+  }, []);
 
   // const onChange = e => {
   //   console.log(text.current.value);
@@ -15,8 +23,9 @@ const AddItem = ({ listNumber }) => {
 
   const submitForm = e => {
     e.preventDefault();
-    console.log(text.current.value);
+    // console.log(text.current.value);
     addItem({ listItem: text.current.value, list: listNumber });
+    text.current.value = "";
   };
 
   return (

@@ -46,6 +46,10 @@ const ListState = props => {
     };
     try {
       const res = await axios.post(`/api/items`, item, config);
+      dispatch({
+        type: ADD_ITEM,
+        payload: res.data
+      });
     } catch (err) {
       dispatch({
         type: ITEMS_ERROR,
