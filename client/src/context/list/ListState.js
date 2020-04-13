@@ -2,7 +2,13 @@ import React, { useReducer } from "react";
 import axios from "axios";
 import ListContext from "./listContext";
 import listReducer from "./listReducer";
-import { UPDATE_ITEM, DELETE_ITEM, GET_ITEMS, ITEMS_ERROR } from "../types";
+import {
+  UPDATE_ITEM,
+  DELETE_ITEM,
+  GET_ITEMS,
+  ITEMS_ERROR,
+  ADD_ITEM
+} from "../types";
 
 const ListState = props => {
   const initialState = {
@@ -23,6 +29,23 @@ const ListState = props => {
         type: GET_ITEMS,
         payload: res.data
       });
+    } catch (err) {
+      dispatch({
+        type: ITEMS_ERROR,
+        payload: err.response.msg
+      });
+    }
+  };
+
+  //add an item to the array
+  const addItem = async item => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+    try {
+      const res = await axios.post(`/api/items`, item, config);
     } catch (err) {
       dispatch({
         type: ITEMS_ERROR,
@@ -55,7 +78,7 @@ const ListState = props => {
   //delete the item from current array
   const deleteItem = async id => {
     //let item = { id: id, item: currentArray };
-    console.log(id);
+    // console.log(id);
     try {
       await axios.delete(`/api/items/${id}`);
       dispatch({
@@ -78,7 +101,8 @@ const ListState = props => {
         error: state.error,
         updateItem,
         deleteItem,
-        getItems
+        getItems,
+        addItem
       }}
     >
       {props.children}

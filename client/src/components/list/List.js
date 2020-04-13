@@ -1,12 +1,12 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect } from "react";
 import AuthContext from "../../context/auth/authContext";
 import ListItem from "./ListItem";
 import ListContext from "../../context/list/listContext";
+import AddItem from "./AddItem";
 
 const List = ({ title, sentArray, listNumber }) => {
   const listContext = useContext(ListContext);
   const authContext = useContext(AuthContext);
-  const text = useRef("");
 
   const { updateItem, getItems } = listContext;
 
@@ -29,21 +29,6 @@ const List = ({ title, sentArray, listNumber }) => {
     updateItem({ _id: id, list: listNumber });
   };
 
-  const submitForm = e => {
-    e.preventDefault();
-    console.log(e.target.value);
-  };
-
-  const onChange = e => {
-    console.log(text.current.value);
-    console.log("target", e.target.value, listNumber);
-    // if (text.current.value !== "") {
-    //   filterContacts(e.target.value);
-    // } else {
-    //   clearFilter();
-    // }
-  };
-
   return (
     <div
       className="listCard"
@@ -52,20 +37,7 @@ const List = ({ title, sentArray, listNumber }) => {
       // draggable add later
     >
       <h1 className="text-dark text-center">List {listNumber}</h1>
-
-      <form>
-        <div className="newItemContainer">
-          <input
-            ref={text}
-            className="itemCard itemInput"
-            type="text center"
-            placeholder="New item..."
-            onSubmit={submitForm}
-            onChange={onChange}
-          />
-        </div>
-      </form>
-
+      <AddItem listNumber={listNumber} />
       {sentArray.map((item, index) => (
         <ListItem
           key={index}

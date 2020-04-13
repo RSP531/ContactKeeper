@@ -464,13 +464,30 @@ table th {
   align-self: center;
 }
 
-.itemInput {
-  width: 100%;
-  padding: 0.4rem;
+.input-icons i {
+  position: absolute;
 }
 
-.newItemContainer {
+.input-icons {
+  width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: stretch;
+  flex-direction: row-reverse;
+}
+
+.icon {
+  /* padding: 1.5%; */
+  align-self: center;
+  padding-right: 0.6rem;
+  /* margin-top: 20px; */
+}
+
+.input-field {
+  width: 100%;
+  margin: 0.1rem;
+  padding-left: 20px;
+  text-align: left;
+  border-radius: 5px;
+  background: var(--primary-color);
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem !important;
 }
